@@ -5,6 +5,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { Routes } from './src/Routes';
 import LoadAssets from './src/components/LoadAssets';
 import TwitterProfile from './src/TwitterProfile';
+import MovieCarousel from './src/MovieCarousel';
 
 const fonts = {
   "SFProDisplay-Bold": require("./assets/fonts/SFPro/SF-Pro-Display-Bold.otf"),

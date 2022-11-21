@@ -19,7 +19,7 @@ function generateTweets(limit) {
 }
 
 const TWEETS = generateTweets(30);
-const HEADER_HEIGHT_EXPANDED = 35;
+const HEADER_HEIGHT_EXPANDED = 350;
 const HEADER_HEIGHT_NARROWED = 90;
 
 const PROFILE_PICTURE_URI =
@@ -99,13 +99,13 @@ const TwitterProfile = () => {
           right: 0,
           alignItems: 'center',
           opacity: scrollY.interpolate({
-            inputRange: [90, 110],
+            inputRange: [HEADER_HEIGHT_EXPANDED, 400],
             outputRange: [0, 1],
           }),
           transform: [
             {
               translateY: scrollY.interpolate({
-                inputRange: [90, 120],
+                inputRange: [HEADER_HEIGHT_EXPANDED, 400],
                 outputRange: [30, 0],
                 extrapolate: 'clamp'
               })
@@ -145,7 +145,7 @@ const TwitterProfile = () => {
             ...StyleSheet.absoluteFillObject,
             zIndex: 2,
             opacity: scrollY.interpolate({
-              inputRange: [-50, 0, 50, 100],
+              inputRange: [-150, 0, 100, 250],
               outputRange: [1, 0, 0, 1]
             })
           }}
