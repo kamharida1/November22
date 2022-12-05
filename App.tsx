@@ -6,6 +6,12 @@ import { Routes } from './src/Routes';
 import LoadAssets from './src/components/LoadAssets';
 import TwitterProfile from './src/TwitterProfile';
 import MovieCarousel from './src/MovieCarousel';
+import Snapchat from './src/Snapchat';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
+import Router from './src/Ecom';
+import { RootSiblingParent } from "react-native-root-siblings";
+
+
 
 const fonts = {
   "SFProDisplay-Bold": require("./assets/fonts/SFPro/SF-Pro-Display-Bold.otf"),
@@ -41,9 +47,12 @@ const AppNavigator = () => (
 
 export default function App() {
   return (
-    <LoadAssets assets={assets} fonts={fonts}>
-      <TwitterProfile />
-    </LoadAssets>
+    // <LoadAssets assets={assets} fonts={fonts}>
+    //   <Snapchat />
+    // </LoadAssets>
+    <RootSiblingParent>
+      <Router />
+    </RootSiblingParent>
   );
 }
 

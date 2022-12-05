@@ -45,20 +45,20 @@ const TwitterProfile = () => {
   const scrollY = useRef(new Animated.Value(0)).current
   return (
     <View style={styles.container}>
-      <StatusBar style='light' />
+      <StatusBar style="light" />
       {/* Back button */}
       <View
         style={{
           zIndex: 2,
-          position: 'absolute',
-          top: insets.top ,
+          position: "absolute",
+          top: insets.top,
           left: 20,
           height: 40,
           width: 40,
-          backgroundColor: 'rgba(255,255,255,0.2)',
+          backgroundColor: "rgba(255,255,255,0.2)",
           borderRadius: 20,
-          alignItems: 'center',
-          justifyContent: 'center'
+          alignItems: "center",
+          justifyContent: "center",
         }}
       >
         <Feather name="chevrons-left" color="white" size={26} />
@@ -67,24 +67,24 @@ const TwitterProfile = () => {
       <Animated.View
         style={{
           zIndex: 2,
-          position: 'absolute',
+          position: "absolute",
           top: insets.top + 13,
           left: 0,
           right: 0,
-          alignItems: 'center',
+          alignItems: "center",
           opacity: scrollY.interpolate({
             inputRange: [-20, 0],
-            outputRange: [1, 0]
+            outputRange: [1, 0],
           }),
           transform: [
             {
               rotate: scrollY.interpolate({
                 inputRange: [-45, -35],
-                outputRange: ['180deg', '0deg'],
-                extrapolate: 'clamp'
-              })
-            }
-          ]
+                outputRange: ["180deg", "0deg"],
+                extrapolate: "clamp",
+              }),
+            },
+          ],
         }}
       >
         <Feather name="arrow-down" color="white" size={25} />
@@ -93,11 +93,11 @@ const TwitterProfile = () => {
       <Animated.View
         style={{
           zIndex: 2,
-          position: 'absolute',
+          position: "absolute",
           top: insets.top + 6,
           left: 0,
           right: 0,
-          alignItems: 'center',
+          alignItems: "center",
           opacity: scrollY.interpolate({
             inputRange: [HEADER_HEIGHT_EXPANDED, 400],
             outputRange: [0, 1],
@@ -106,23 +106,21 @@ const TwitterProfile = () => {
             {
               translateY: scrollY.interpolate({
                 inputRange: [HEADER_HEIGHT_EXPANDED, 400],
-                outputRange: [30, 0],
-                extrapolate: 'clamp'
-              })
-            }
-          ]
+                outputRange: [-30, 0],
+                extrapolate: "clamp",
+              }),
+            },
+          ],
         }}
       >
         <Text style={[styles.text, styles.username]}>Arnaud</Text>
-        <Text style={[styles.text, styles.tweetsCount]}>
-          379 tweets
-        </Text>
+        <Text style={[styles.text, styles.tweetsCount]}>379 tweets</Text>
       </Animated.View>
       {/* Banner */}
       <AnimatedImageBackground
         source={{ uri: PROFILE_BANNER_URI }}
         style={{
-          position: 'absolute',
+          position: "absolute",
           left: 0,
           right: 0,
           height: HEADER_HEIGHT_EXPANDED + HEADER_HEIGHT_NARROWED,
@@ -131,11 +129,11 @@ const TwitterProfile = () => {
               scale: scrollY.interpolate({
                 inputRange: [-200, 0],
                 outputRange: [5, 1],
-                extrapolate: 'extend',
-                extrapolateRight: 'clamp'
-              })
-            }
-          ]
+                extrapolate: "extend",
+                extrapolateRight: "clamp",
+              }),
+            },
+          ],
         }}
       >
         <AnimatedBlurView
@@ -146,8 +144,8 @@ const TwitterProfile = () => {
             zIndex: 2,
             opacity: scrollY.interpolate({
               inputRange: [-150, 0, 100, 250],
-              outputRange: [1, 0, 0, 1]
-            })
+              outputRange: [1, 0, 0, 1],
+            }),
           }}
         />
       </AnimatedImageBackground>
@@ -159,11 +157,11 @@ const TwitterProfile = () => {
           [
             {
               nativeEvent: {
-                contentOffset: { y: scrollY},
-              }
-            }
+                contentOffset: { y: scrollY },
+              },
+            },
           ],
-          {useNativeDriver: true}
+          { useNativeDriver: true }
         )}
         style={{
           zIndex: 3,
@@ -171,44 +169,42 @@ const TwitterProfile = () => {
           paddingTop: HEADER_HEIGHT_EXPANDED,
         }}
       >
-        <View
-          style={[styles.container, {backgroundColor: 'black'}]}
-        >
+        <Animated.View style={[styles.container, { backgroundColor: "black" }]}>
           <View
             style={[
               styles.container,
               {
-                paddingHorizontal: 20
-              }
+                paddingHorizontal: 20,
+              },
             ]}
           >
             <Animated.Image
               source={{
-                uri: PROFILE_PICTURE_URI
+                uri: PROFILE_PICTURE_URI,
               }}
               style={{
                 width: 75,
                 height: 75,
                 borderRadius: 40,
                 borderWidth: 4,
-                borderColor: 'black',
+                borderColor: "black",
                 marginTop: -30,
                 transform: [
-                {
-                  scale: scrollY.interpolate({
-                    inputRange: [0, HEADER_HEIGHT_EXPANDED],
-                    outputRange: [1, 0.6],
-                    extrapolate: 'clamp',
-                  }),
-                },
-                {
-                  translateY: scrollY.interpolate({
-                    inputRange: [0, HEADER_HEIGHT_EXPANDED],
-                    outputRange: [0, 16],
-                    extrapolate: 'clamp',
-                  }),
-                },
-              ],
+                  {
+                    scale: scrollY.interpolate({
+                      inputRange: [0, HEADER_HEIGHT_EXPANDED],
+                      outputRange: [1, 0.6],
+                      extrapolate: "clamp",
+                    }),
+                  },
+                  {
+                    translateY: scrollY.interpolate({
+                      inputRange: [0, HEADER_HEIGHT_EXPANDED],
+                      outputRange: [0, 25],
+                      extrapolate: "clamp",
+                    }),
+                  },
+                ],
               }}
             />
             <Animated.Text
@@ -216,9 +212,9 @@ const TwitterProfile = () => {
                 styles.text,
                 {
                   fontSize: 24,
-                  fontWeight: 'bold',
+                  fontWeight: "bold",
                   marginTop: 10,
-                }
+                },
               ]}
             >
               Arnaud
@@ -228,51 +224,49 @@ const TwitterProfile = () => {
                 styles.text,
                 {
                   fontSize: 15,
-                  color: 'gray',
-                  marginBottom: 15
-                }
+                  color: "gray",
+                  marginBottom: 15,
+                },
               ]}
             >
               @eveningkid
             </Text>
-            <Text
-              style={[
-                styles.text,
-                { marginBottom: 15, fontSize: 15}
-              ]}
-            >
+            <Text style={[styles.text, { marginBottom: 15, fontSize: 15 }]}>
               Same @ on every social media
             </Text>
             {/* Profile stats */}
             <View
               style={{
-                flexDirection: 'row',
-                marginBottom: 15
+                flexDirection: "row",
+                marginBottom: 15,
               }}
             >
               <Text
                 style={[
                   styles.text,
                   {
-                    fontWeight: 'bold',
-                    marginRight: 10
-                  }
+                    fontWeight: "bold",
+                    marginRight: 10,
+                  },
                 ]}
-              > 70{' '}
+              >
+                {" "}
+                70{" "}
                 <Text
                   style={{
-                    color: 'gray',
-                    fontWeight: 'normal'
+                    color: "gray",
+                    fontWeight: "normal",
                   }}
                 >
                   Following
                 </Text>
               </Text>
-              <Text style={[styles.text, {fontWeight: 'bold'}]}>106{' '}
+              <Text style={[styles.text, { fontWeight: "bold" }]}>
+                106{" "}
                 <Text
                   style={{
-                    color: 'gray',
-                    fontWeight: 'normal'
+                    color: "gray",
+                    fontWeight: "normal",
                   }}
                 >
                   Followers
@@ -298,32 +292,32 @@ const TwitterProfile = () => {
                     style={[
                       styles.text,
                       {
-                        fontWeight: 'bold',
-                        fontSize: 15
-                      }
+                        fontWeight: "bold",
+                        fontSize: 15,
+                      },
                     ]}
                   >
-                    {item.author}{' '}
+                    {item.author}{" "}
                     <Text
                       style={{
-                        color: 'gray',
-                        fontWeight: 'normal'
+                        color: "gray",
+                        fontWeight: "normal",
                       }}
                     >
                       @{item.tag} . {index + 1}d
                     </Text>
                   </Text>
-                  <Text style={[styles.text, {fontSize: 15}]}>
+                  <Text style={[styles.text, { fontSize: 15 }]}>
                     {item.text}
                   </Text>
                 </View>
               </View>
             ))}
           </View>
-        </View>
+        </Animated.View>
       </Animated.ScrollView>
     </View>
-  )
+  );
 }
 
 const styles = StyleSheet.create({
