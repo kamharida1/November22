@@ -80,7 +80,7 @@ const HomeScreen = () => {
   //   setProducts(data)
   // }
 
-  console.log(products)
+  //console.log(products)
   return (
     <Animated.View
       style={{

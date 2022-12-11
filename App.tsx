@@ -10,7 +10,13 @@ import Snapchat from './src/Snapchat';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import Router from './src/Ecom';
 import { RootSiblingParent } from "react-native-root-siblings";
+import { Amplify } from "aws-amplify";
+import { Authenticator, useAuthenticator } from "@aws-amplify/ui-react-native";
 
+import awsExports from "./src/aws-exports";
+import TodoApp from './src/TodoApp';
+import Colors from './src/Ecom/utils/Colors';
+Amplify.configure(awsExports);
 
 
 const fonts = {
@@ -50,9 +56,15 @@ export default function App() {
     // <LoadAssets assets={assets} fonts={fonts}>
     //   <Snapchat />
     // </LoadAssets>
-    <RootSiblingParent>
-      <Router />
-    </RootSiblingParent>
+    <Authenticator.Provider>
+      <Authenticator>
+        <RootSiblingParent>
+          <SafeAreaProvider style={{ flex: 1, backgroundColor: Colors.bgRoseWhite2 }}>
+            <TodoApp />
+          </SafeAreaProvider>
+        </RootSiblingParent>
+      </Authenticator>
+    </Authenticator.Provider>
   );
 }
 

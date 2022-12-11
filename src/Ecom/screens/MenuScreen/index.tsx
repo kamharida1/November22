@@ -1,8 +1,10 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, View, } from 'react-native'
 import React from 'react'
 import Button from '../../components/Button';
 import Colors from '../../utils/Colors';
 import Toast from "react-native-root-toast";
+import { Amplify } from "aws-amplify";
+import { Authenticator, useAuthenticator } from "@aws-amplify/ui-react-native";
 
 import { DataStore } from "@aws-amplify/datastore";
 import loadProducts from "../../scripts/loadProducts";
@@ -42,11 +44,23 @@ async function clearDataStore() {
   });
 }
 
+function SignOutButton() {
+  const { signOut } = useAuthenticator();
+  return (
+    <Button
+      text="Sign Out"
+      onPress={signOut}
+      containerStyles={styles.buttonContainer}
+    />
+  );
+}
+
 
 
 function Header() {
   return (
     <View style={{ flex: 1, top: 150 }}>
+      <SignOutButton />
       <Button
         containerStyles={styles.buttonContainer}
         text="Create dummy products"
